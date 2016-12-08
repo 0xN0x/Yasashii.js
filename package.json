@@ -1,0 +1,15 @@
+{
+  "name": "yasashii",
+  "version": "0.1",
+  "description": "Discord bot",
+  "main": "yasashii.js",
+  "scripts": {
+    "test": "node yasashii.js"
+  },
+  "author": "Shigehiro & Shiironeko",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.1.2",
+    "eris": "github:hydrabolt/discord.js#indev",
+  }
+}
