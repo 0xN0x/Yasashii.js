@@ -1,5 +1,6 @@
 const moment = require('moment');
-const Discord = require("discord.js");
+const Discord = require('discord.js');
+const fs = require('fs')
 const bot = new Discord.Client();
 
 bot.set = require(__dirname+'/bot.json');
@@ -9,7 +10,7 @@ global.bot = bot;
 global.ys = require(__dirname+'util.js');
 
 bot.on('ready', function() {
-  bot.user.setPresence({status: 'online', game:{ name:`${bot.set.prefix}help - ${bot.guilds.size} Servers`}});
+  bot.user.setPresence({status: 'online', game:{name:`${bot.set.prefix}help - ${bot.guilds.size} Servers`}});
   console.log(`${bot.users.size} users, in ${bot.channels.size} channels of ${bot.guilds.size} servers`);
   bot.start = moment().valueOf();
 });
@@ -26,8 +27,7 @@ bot.on('message', function() {
         try {
           if (cmd.type === 'basic') {
             cmd.run(m);
-          }
-          else if (cmd.type === 'admin') {
+          } else if (cmd.type === 'admin') {
             if (bot.set.admins.indexOf(m.author.id) > -1) {
               cmd.run(m);
             }
