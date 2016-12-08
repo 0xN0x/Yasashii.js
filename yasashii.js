@@ -22,7 +22,14 @@ bot.on('message', function() {
     var command = m.content.split(" ")[0].replace(bot.set.prefix, "");
     if (bot.commands.indexOf(command+'.js') > -1) {
       var cmd = reload(__dirname+'/commands/'+command+'.js');
-      var args = m.content.substring((bot.set.prefix).length+command.length+1);
+      if (cmd) {
+        try {
+          cmd.run(m);
+        } catch(err) {
+          m.channel.sendMessage("⚠️ **ERROR:** "+err.message);
+          console.log(err);
+        }
+      }
     }
   }
 });
