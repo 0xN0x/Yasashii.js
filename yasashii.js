@@ -24,7 +24,14 @@ bot.on('message', function() {
       var cmd = reload(__dirname+'/commands/'+command+'.js');
       if (cmd) {
         try {
-          cmd.run(m);
+          if (cmd.type === 'basic') {
+            cmd.run(m);
+          }
+          else if (cmd.type === 'admin') {
+            if (bot.set.admins.indexOf(m.author.id) > -1) {
+              cmd.run(m);
+            }
+          }
         } catch(err) {
           m.channel.sendMessage("⚠️ **ERROR:** "+err.message);
           console.log(err);
