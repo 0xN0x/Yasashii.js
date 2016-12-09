@@ -20,5 +20,5 @@ cmd.run = (msg,args) => {
   , ['channels', bot.channels.size]
   , ['users', bot.users.size]
   );
-  ys.send('```\n'+table.toString().split('[39m').join('').split('[90m').join('')+'```');
+  ys.send(msg.channel, '```\n'+table.toString().split('[39m').join('').split('[90m').join('')+'```');
 };
