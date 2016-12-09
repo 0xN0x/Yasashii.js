@@ -1,5 +1,5 @@
 var ys = module.exports = {};
 
-wolver.ys = function(log) {
+ys.logger = function(log) {
   console.log(log);
 };
