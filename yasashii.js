@@ -1,4 +1,5 @@
 const moment = require('moment');
+var reload = require('require-reload')(require);
 const Discord = require('discord.js');
 const fs = require('fs')
 const bot = new Discord.Client();
@@ -26,10 +27,10 @@ bot.on('message', function(msg) {
       if (cmd) {
         try {
           if (cmd.type === 'basic') {
-            cmd.run(m);
+            cmd.run(msg);
           } else if (cmd.type === 'admin') {
-            if (bot.set.admins.indexOf(m.author.id) > -1) {
-              cmd.run(m);
+            if (bot.set.admins.indexOf(msg.author.id) > -1) {
+              cmd.run(msg);
             }
           }
         } catch(err) {
@@ -39,6 +40,9 @@ bot.on('message', function(msg) {
       }
     }
   }
+});
+process.on("unhandledRejection", err => {
+	console.error("Uncaught Promise Error: \n" + err.stack);
 });
 
 bot.login(bot.set.token);
