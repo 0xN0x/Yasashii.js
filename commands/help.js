@@ -4,6 +4,6 @@ a.type = "basic";
 a.command = true;
 a.help = "Help !";
 
-a.run = (m) => {
-
+a.run = (msg) => {
+  msg.channel.sendMessage('test.');
 };

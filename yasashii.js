@@ -7,7 +7,7 @@ bot.set = require(__dirname+'/bot.json');
 bot.commands = fs.readdirSync(__dirname+'/commands/');
 
 global.bot = bot;
-global.ys = require(__dirname+'utils.js');
+global.ys = require(__dirname+'/utils.js');
 
 bot.on('ready', function() {
   bot.user.setPresence({status: 'online', game:{name:`${bot.set.prefix}help - ${bot.guilds.size} Servers`}});
@@ -15,12 +15,12 @@ bot.on('ready', function() {
   bot.start = moment().valueOf();
 });
 
-bot.on('message', function() {
-  if (m.author.bot === true) return;
-	if (m.channel.type === 'dm') return;
+bot.on('message', function(msg) {
+  if (msg.author.bot === true) return;
+	if (msg.channel.type === 'dm') return;
 
-  if(m.content.startsWith(bot.set.prefix)) {
-    var command = m.content.split(' ')[0].replace(bot.set.prefix, '');
+  if(msg.content.startsWith(bot.set.prefix)) {
+    var command = msg.content.split(' ')[0].replace(bot.set.prefix, '');
     if (bot.commands.indexOf(command+'.js') > -1) {
       var cmd = reload(__dirname+'/commands/'+command+'.js');
       if (cmd) {
@@ -33,7 +33,7 @@ bot.on('message', function() {
             }
           }
         } catch(err) {
-          m.channel.sendMessage(`⚠️ **ERROR:** ${err.message}`);
+          msg.channel.sendMessage(`⚠️ **ERROR:** ${err.message}`);
           console.log(err);
         }
       }
