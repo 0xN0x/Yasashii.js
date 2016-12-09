@@ -1,5 +1,5 @@
-var wolver = module.exports = {};
+var ys = module.exports = {};
 
-wolver.logger = function(log) {
+wolver.ys = function(log) {
   console.log(log);
 };
