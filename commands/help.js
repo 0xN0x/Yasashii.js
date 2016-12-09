@@ -6,5 +6,5 @@ cmd.help = "Help !";
 cmd.args = '';
 
 cmd.run = (msg) => {
-  ys.send('test.');
+  ys.send(msg.channel, 'test.');
 };
