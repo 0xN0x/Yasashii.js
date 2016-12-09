@@ -1,9 +1,15 @@
-var e = module.exports = {};
+var cmd = module.exports = {};
 
-a.type = "basic";
-a.command = true;
-a.help = "Help !";
+cmd.type = "basic";
+cmd.command = true;
+cmd.help = "Help !";
+cmd.args = '';
 
+<<<<<<< HEAD
 a.run = (msg) => {
   msg.channel.sendMessage('test.');
+=======
+cmd.run = (m) => {
+
+>>>>>>> origin/master
 };
