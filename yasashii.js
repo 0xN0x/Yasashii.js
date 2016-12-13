@@ -18,8 +18,8 @@ bot.on('ready', function() {
 
 bot.on('message', function(msg) {
   if (msg.author.bot === true) return;
-	if (msg.channel.type === 'dm') return;
-
+  if (msg.channel.type === 'dm') return;
+	
   if(msg.content.startsWith(bot.set.prefix)) {
     var command = msg.content.split(' ')[0].replace(bot.set.prefix, '');
     if (bot.commands.indexOf(command+'.js') > -1) {
