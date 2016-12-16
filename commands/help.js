@@ -18,6 +18,6 @@ cmd.run = (msg, args) => {
   });
   lines.push('```**');
   var message = lines.join("\n");
-  m.author.sendMessage(message);
-  m.channel.sendMessage('All commands have been sent, look in your DM.');
+  ys.send(m.author, message);
+  ys.send(m.channel, 'All commands have been sent, look in your DM.');
 };
