@@ -42,7 +42,7 @@ bot.on('message', function(msg) {
   }
 });
 process.on("unhandledRejection", err => {
-	console.error("Uncaught Promise Error: \n" + err.stack);
+  console.error("Uncaught Promise Error: \n" + err.stack);
 });
 
 bot.login(bot.set.token);
