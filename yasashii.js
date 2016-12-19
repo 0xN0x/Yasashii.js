@@ -3,6 +3,7 @@ var reload = require('require-reload')(require);
 const Discord = require('discord.js');
 const fs = require('fs')
 const bot = new Discord.Client();
+//const website = require('')
 
 bot.set = require(__dirname+'/bot.json');
 bot.commands = fs.readdirSync(__dirname+'/commands/');
