@@ -25,13 +25,14 @@ bot.on('message', function(msg) {
     var command = msg.content.split(' ')[0].replace(bot.set.prefix, '');
     if (cmds.indexOf(command+'.js') > -1) {
       var cmd = reload(__dirname+'/commands/'+command+'.js');
+      var args = msg.content.substring(bot.set.prefix.length+command.length+1);
       if (cmd) {
         try {
           if (cmd.type === 'basic') {
-            cmd.run(msg);
+            cmd.run(msg, args);
           } else if (cmd.type === 'admin') {
             if (bot.set.admins.indexOf(msg.author.id) > -1) {
-              cmd.run(msg);
+              cmd.run(msg, args);
             }
           }
         } catch(err) {
