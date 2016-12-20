@@ -6,7 +6,6 @@ const bot = new Discord.Client();
 //const website = require('')
 
 bot.set = require(__dirname+'/bot.json');
-bot.commands = fs.readdirSync(__dirname+'/commands/');
 
 global.bot = bot;
 global.ys = require(__dirname+'/utils.js');
@@ -20,10 +19,11 @@ bot.on('ready', function() {
 bot.on('message', function(msg) {
   if (msg.author.bot === true) return;
   if (msg.channel.type === 'dm') return;
-	
+
   if(msg.content.startsWith(bot.set.prefix)) {
+    var cmds = fs.readdirSync('./commands/');
     var command = msg.content.split(' ')[0].replace(bot.set.prefix, '');
-    if (bot.commands.indexOf(command+'.js') > -1) {
+    if (cmds.indexOf(command+'.js') > -1) {
       var cmd = reload(__dirname+'/commands/'+command+'.js');
       if (cmd) {
         try {
