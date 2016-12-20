@@ -10,11 +10,13 @@ cmd.run = (msg, args) => {
     var line = '.'+file.replace(".js", "")+"  = "+help+"";
     return line;
   }
-  var files = fs.readdirSync("./Modules/commands/");
+  var files = fs.readdirSync("./commands/");
   var lines = ['**```css','[ Commands ]'];
   files.forEach(function(file) {
-    var cmd = require("./"+file)
-    lines.push(format(file, cmd.help));
+    if(file.indexOf(".js")) {
+      var cmd = require("./"+file)
+      lines.push(format(file, cmd.help));
+    }
   });
   lines.push('```**');
   var message = lines.join("\n");
