@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 var cmd = module.exports = {};
 
 cmd.type = "basic";
@@ -11,7 +13,7 @@ cmd.run = (msg, args) => {
     return line;
   }
   var files = fs.readdirSync("./commands/");
-  var lines = ['**```css','[ Commands ]'];
+  var lines = ['**```md','[ Commands ]'];
   files.forEach(function(file) {
     if(file.indexOf(".js")) {
       var cmd = require("./"+file)
@@ -20,6 +22,6 @@ cmd.run = (msg, args) => {
   });
   lines.push('```**');
   var message = lines.join("\n");
-  ys.send(m.author, message);
-  ys.send(m.channel, 'All commands have been sent, look in your DM.');
+  ys.send(msg.author, message);
+  ys.send(msg.channel, 'All commands have been sent, look in your DM.');
 };
