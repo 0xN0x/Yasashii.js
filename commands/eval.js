@@ -8,10 +8,9 @@ cmd.run = (msg) => {
   let command = msg.content.split(' ').slice(1).join(' ');
   msg.channel.sendMessage(
 `\`\`\`ini
-[ Wolver Eval ]
+[ Yasashii Eval ]
+(${command})
 
-INPUT = (${command})
-
-OUTPUT = (${eval(command)})
+OUT = (${eval(command)})
 \`\`\``);
 };
