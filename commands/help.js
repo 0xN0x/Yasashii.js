@@ -13,11 +13,13 @@ cmd.run = (msg, args) => {
     return line;
   }
   var files = fs.readdirSync("./commands/");
-  var lines = ['**```md','[ Commands ]'];
+  var lines = ['**```css','[ Commands ]'];
   files.forEach(function(file) {
     if(file.indexOf(".js")) {
       var cmd = require("./"+file)
-      lines.push(format(file, cmd.help));
+      if (cmd.type === 'basic') {
+        lines.push(format(file, cmd.help));
+      }
     }
   });
   lines.push('```**');
