@@ -2,10 +2,11 @@ var fs = require('fs');
 
 var cmd = module.exports = {};
 
-cmd.type = "basic";
+cmd.args = ``;
+cmd.permission = 0;
+cmd.type = 1;
 cmd.command = true;
 cmd.help = "Help !";
-cmd.args = '';
 
 cmd.run = (msg, args) => {
   function format(file, help) {

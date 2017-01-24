@@ -8,7 +8,9 @@ var mod = {
 
 var cmd = module.exports = {};
 
-cmd.type = "basic";
+cmd.args = ``;
+cmd.permission = 0;
+cmd.type = 1;
 cmd.command = true;
 cmd.help = "Get osu account informations. ex: .osu <username> <basic|taiko|CTB|mania>";
 

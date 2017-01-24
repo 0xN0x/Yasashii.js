@@ -1,12 +1,14 @@
 var cmd = module.exports = {};
 
-cmd.type = "admin";
+cmd.args = ``;
+cmd.permission = 0;
+cmd.type = 3;
 cmd.command = true;
 cmd.args = '';
 
 cmd.run = (msg) => {
   let command = msg.content.split(' ').slice(1).join(' ');
-  msg.channel.sendMessage(
+  ys.send(msg.channel, 
 `\`\`\`ini
 [ Yasashii Eval ]
 (${command})

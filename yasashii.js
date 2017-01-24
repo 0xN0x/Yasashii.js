@@ -28,9 +28,9 @@ bot.on('message', function(msg) {
       var args = msg.content.substring(bot.set.prefix.length+command.length+1);
       if (cmd) {
         try {
-          if (cmd.type === 'basic') {
+          if (cmd.type === 1) {
             cmd.run(msg, args);
-          } else if (cmd.type === 'admin') {
+          } else if (cmd.type === 3) {
             if (bot.set.admins.indexOf(msg.author.id) > -1) {
               cmd.run(msg, args);
             }

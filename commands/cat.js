@@ -2,7 +2,9 @@ var http = require('http');
 
 var cmd = module.exports = {};
 
-cmd.type = "basic";
+cmd.args = ``;
+cmd.permission = 0;
+cmd.type = 1;
 cmd.command = true;
 cmd.help = "Random cat pictures.";
 

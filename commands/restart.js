@@ -1,11 +1,13 @@
 var cmd = module.exports = {};
 
-cmd.type = "admin";
+cmd.args = ``;
+cmd.permission = 0;
+cmd.type = 3;
 cmd.command = true;
 cmd.args = '';
 
 cmd.run = (msg) => {
-  msg.channel.sendMessage(`:white_check_mark: ${bot.user.username} was been restarted!`).then(setInterval(restart, 500))
+  ys.send(msg.channel, `:white_check_mark: ${bot.user.username} was been restarted!`).then(setInterval(restart, 500))
 	function restart() {
 		bot.destroy();
 		process.exit();
