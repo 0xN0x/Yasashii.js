@@ -18,7 +18,7 @@ cmd.run = (msg, args) => {
   files.forEach(function(file) {
     if(file.indexOf(".js")) {
       var cmd = require("./"+file)
-      if (cmd.type === 'basic') {
+      if (cmd.type === 1) {
         lines.push(format(file, cmd.help));
       }
     }
