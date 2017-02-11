@@ -1,7 +1,7 @@
 var cmd = module.exports = {};
 
 cmd.args = ``;
-cmd.permission = 0;
+cmd.permission = 31;
 cmd.type = 3;
 cmd.command = true;
 cmd.args = '';

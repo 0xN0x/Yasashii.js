@@ -8,8 +8,8 @@ var mod = {
 
 var cmd = module.exports = {};
 
-cmd.args = ``;
-cmd.permission = 0;
+cmd.args = `<osu username> [taiko|CTB|mania]`;
+cmd.permission = 1;
 cmd.type = 1;
 cmd.command = true;
 cmd.help = "Get osu account informations. ex: .osu <username> <basic|taiko|CTB|mania>";

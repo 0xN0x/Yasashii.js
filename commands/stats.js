@@ -3,7 +3,7 @@ var Table = require('cli-table');
 var cmd = module.exports = {};
 
 cmd.args = ``;
-cmd.permission = 0;
+cmd.permission = 1;
 cmd.type = 1;
 cmd.command = true;
 cmd.help = "Show the stats of the bot.";
