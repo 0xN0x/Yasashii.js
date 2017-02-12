@@ -88,3 +88,20 @@ ys.getUser = function(message, search) {
   if(members.first()) return members.first();
   return false;
 }
+
+ys.lower = function(text) {
+  return text.toLowerCase()
+}
+
+ys.upper = function(text) {
+  return text.toUpperCase()
+}
+
+ys.code = function(chan, type, msg) {
+  return chan.sendCode(type, msg);
+}
+
+ys.getAvatar = function(usr) {
+  if (usr.avatar) return [usr.avatar, usr.avatarURL];
+  else return [null, "./img/defaultavatar.png"];
+}
