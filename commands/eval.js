@@ -6,13 +6,12 @@ cmd.type = 3;
 cmd.command = true;
 cmd.args = '';
 
-cmd.run = (msg) => {
+cmd.run = (msg, args) => {
   let command = msg.content.split(' ').slice(1).join(' ');
-  ys.send(msg.channel,
-`\`\`\`ini
-[ Yasashii Eval ]
-(${command})
-
-OUT = (${eval(command)})
-\`\`\``);
+  ys.send(msg.channel, "", {
+		embed: {
+			description: `${eval(command)}`,
+			color: 0xE7A727
+		}
+	})
 };
