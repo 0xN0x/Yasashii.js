@@ -9,14 +9,14 @@ cmd.command = true;
 cmd.help = ``;
 
 cmd.run = (msg, args) => {
-	exec(suffix, function(err, stdout, stderr) {
-		if (!err) {
+  exec(suffix, function(err, stdout, stderr) {
+    if (!err) {
       ys.send(msg.channel, "", {
-    		embed: {
-    			description: `${stdout}`,
-    			color: 0xE7A727
-    		}
-    	})
-		}
-	});
+        embed: {
+          description: `${stdout}`,
+          color: 0xE7A727
+        }
+      })
+    }
+  });
 }
